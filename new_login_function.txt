@@ -1,0 +1,416 @@
+function getLoginPage() {
+    return getBreadcrumb('login') + `
+        <div class="page-content" style="background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #2a1a3e 100%); min-height: 100vh; position: relative; overflow: hidden;">
+            
+            <!-- Animated Background Elements -->
+            <div style="position: absolute; top: 20%; left: 10%; width: 400px; height: 400px; background: radial-gradient(circle, rgba(124, 58, 237, 0.15) 0%, transparent 70%); border-radius: 50%; filter: blur(60px); animation: floatSlow 8s ease-in-out infinite;"></div>
+            <div style="position: absolute; bottom: 20%; right: 10%; width: 300px; height: 300px; background: radial-gradient(circle, rgba(236, 72, 153, 0.15) 0%, transparent 70%); border-radius: 50%; filter: blur(60px); animation: floatSlow 10s ease-in-out infinite reverse;"></div>
+            
+            <div class="container" style="max-width: 1000px; margin: 0 auto; padding: 4rem 2rem; position: relative; z-index: 1;">
+                
+                <!-- Profile Hero -->
+                <div class="credits-profile-card">
+                    <div class="profile-avatar-section">
+                        <div class="avatar-wrapper">
+                            <img src="${getUserProfilePhoto()}" alt="Profile" class="profile-avatar" id="profileImage">
+                            <button class="avatar-edit-btn" onclick="document.getElementById('profileUpload').click()">
+                                <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
+                                </svg>
+                            </button>
+                            <input type="file" id="profileUpload" accept="image/*" style="display:none">
+                        </div>
+                    </div>
+                    
+                    <div class="profile-info-section">
+                        <h1 class="profile-name-new">Ryze</h1>
+                        <p class="profile-role-new">Full-Stack Developer • UI/UX Designer</p>
+                        <div class="profile-status-new">
+                            <span class="status-dot-new"></span>
+                            <span>Available for projects</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Stats Grid -->
+                <div class="credits-stats-grid">
+                    <div class="stat-box-new">
+                        <div class="stat-icon-new">🚀</div>
+                        <div class="stat-value-new" data-target="2">0</div>
+                        <div class="stat-label-new">Years Experience</div>
+                    </div>
+                    <div class="stat-box-new">
+                        <div class="stat-icon-new">💼</div>
+                        <div class="stat-value-new" data-target="50">0</div>
+                        <div class="stat-label-new">Projects</div>
+                    </div>
+                    <div class="stat-box-new">
+                        <div class="stat-icon-new">⭐</div>
+                        <div class="stat-value-new" data-target="100">0</div>
+                        <div class="stat-label-new">Satisfaction</div>
+                    </div>
+                    <div class="stat-box-new">
+                        <div class="stat-icon-new">⚡</div>
+                        <div class="stat-value-new" data-target="24">0</div>
+                        <div class="stat-label-new">Support</div>
+                    </div>
+                </div>
+                
+                <!-- Skills -->
+                <div class="credits-skills-section">
+                    <h3 class="section-title-new">Core Skills</h3>
+                    <div class="skills-container-new">
+                        <div class="skill-badge-new">🎨 UI/UX Design</div>
+                        <div class="skill-badge-new">⚡ Performance</div>
+                        <div class="skill-badge-new">📱 Responsive</div>
+                        <div class="skill-badge-new">🔒 Security</div>
+                        <div class="skill-badge-new">♿ Accessibility</div>
+                        <div class="skill-badge-new">🚀 DevOps</div>
+                    </div>
+                </div>
+                
+                <!-- Action Buttons -->
+                <div class="credits-actions">
+                    <a href="https://github.com" target="_blank" class="action-button-new primary-btn-new">
+                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                        <span>GitHub</span>
+                    </a>
+                    <a href="mailto:contact@example.com" class="action-button-new secondary-btn-new">
+                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                        </svg>
+                        <span>Contact</span>
+                    </a>
+                    <a href="#" class="action-button-new tertiary-btn-new">
+                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+                        </svg>
+                        <span>Portfolio</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+        
+        <style>
+            @keyframes floatSlow {
+                0%, 100% { transform: translate(0, 0) scale(1); }
+                50% { transform: translate(30px, -30px) scale(1.1); }
+            }
+            
+            @keyframes slideUp {
+                from { opacity: 0; transform: translateY(30px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+            
+            @keyframes rotateGlow {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
+            }
+            
+            @keyframes pulseGlow {
+                0%, 100% { opacity: 1; }
+                50% { opacity: 0.6; }
+            }
+            
+            .credits-profile-card {
+                display: flex;
+                align-items: center;
+                gap: 3rem;
+                background: rgba(255, 255, 255, 0.03);
+                backdrop-filter: blur(20px);
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                border-radius: 24px;
+                padding: 3rem;
+                margin-bottom: 3rem;
+                animation: slideUp 0.8s ease-out;
+            }
+            
+            .profile-avatar-section {
+                flex-shrink: 0;
+            }
+            
+            .avatar-wrapper {
+                position: relative;
+                width: 180px;
+                height: 180px;
+            }
+            
+            .avatar-wrapper::before {
+                content: '';
+                position: absolute;
+                top: -4px;
+                left: -4px;
+                right: -4px;
+                bottom: -4px;
+                background: conic-gradient(from 0deg, #7c3aed, #ec4899, #f59e0b, #10b981, #7c3aed);
+                border-radius: 50%;
+                animation: rotateGlow 3s linear infinite;
+                z-index: 0;
+            }
+            
+            .profile-avatar {
+                position: relative;
+                width: 180px;
+                height: 180px;
+                border-radius: 50%;
+                object-fit: cover;
+                border: 4px solid #1a1a2e;
+                z-index: 1;
+            }
+            
+            .avatar-edit-btn {
+                position: absolute;
+                bottom: 10px;
+                right: 10px;
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                background: linear-gradient(135deg, #7c3aed, #ec4899);
+                border: 2px solid #1a1a2e;
+                color: white;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                z-index: 2;
+            }
+            
+            .avatar-edit-btn:hover {
+                transform: scale(1.1);
+                box-shadow: 0 5px 20px rgba(124, 58, 237, 0.5);
+            }
+            
+            .profile-info-section {
+                flex: 1;
+            }
+            
+            .profile-name-new {
+                font-size: 3.5rem;
+                font-weight: 900;
+                margin: 0 0 0.5rem 0;
+                background: linear-gradient(135deg, #ffffff, #7c3aed, #ec4899);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                line-height: 1.2;
+            }
+            
+            .profile-role-new {
+                font-size: 1.25rem;
+                color: rgba(255, 255, 255, 0.7);
+                margin: 0 0 1.5rem 0;
+            }
+            
+            .profile-status-new {
+                display: inline-flex;
+                align-items: center;
+                gap: 0.5rem;
+                background: rgba(16, 185, 129, 0.15);
+                border: 1px solid rgba(16, 185, 129, 0.3);
+                padding: 0.5rem 1rem;
+                border-radius: 50px;
+                color: #10b981;
+                font-size: 0.9rem;
+                font-weight: 500;
+            }
+            
+            .status-dot-new {
+                width: 8px;
+                height: 8px;
+                border-radius: 50%;
+                background: #10b981;
+                animation: pulseGlow 2s ease-in-out infinite;
+            }
+            
+            .credits-stats-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 1.5rem;
+                margin-bottom: 3rem;
+                animation: slideUp 0.8s ease-out 0.2s both;
+            }
+            
+            .stat-box-new {
+                background: rgba(255, 255, 255, 0.03);
+                backdrop-filter: blur(20px);
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                border-radius: 20px;
+                padding: 2rem;
+                text-align: center;
+                transition: all 0.3s ease;
+            }
+            
+            .stat-box-new:hover {
+                transform: translateY(-5px);
+                background: rgba(255, 255, 255, 0.05);
+                box-shadow: 0 10px 30px rgba(124, 58, 237, 0.2);
+            }
+            
+            .stat-icon-new {
+                font-size: 2.5rem;
+                margin-bottom: 1rem;
+            }
+            
+            .stat-value-new {
+                font-size: 2.5rem;
+                font-weight: 900;
+                color: white;
+                margin-bottom: 0.5rem;
+            }
+            
+            .stat-label-new {
+                color: rgba(255, 255, 255, 0.6);
+                font-size: 0.9rem;
+            }
+            
+            .credits-skills-section {
+                margin-bottom: 3rem;
+                animation: slideUp 0.8s ease-out 0.4s both;
+            }
+            
+            .section-title-new {
+                font-size: 2rem;
+                font-weight: 700;
+                color: white;
+                text-align: center;
+                margin-bottom: 2rem;
+            }
+            
+            .skills-container-new {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 1rem;
+                justify-content: center;
+            }
+            
+            .skill-badge-new {
+                background: rgba(255, 255, 255, 0.05);
+                backdrop-filter: blur(10px);
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                padding: 0.75rem 1.5rem;
+                border-radius: 50px;
+                color: rgba(255, 255, 255, 0.9);
+                font-weight: 500;
+                transition: all 0.3s ease;
+                cursor: pointer;
+            }
+            
+            .skill-badge-new:hover {
+                background: rgba(124, 58, 237, 0.2);
+                border-color: rgba(124, 58, 237, 0.5);
+                transform: translateY(-2px);
+            }
+            
+            .credits-actions {
+                display: flex;
+                gap: 1rem;
+                justify-content: center;
+                flex-wrap: wrap;
+                animation: slideUp 0.8s ease-out 0.6s both;
+            }
+            
+            .action-button-new {
+                display: flex;
+                align-items: center;
+                gap: 0.75rem;
+                padding: 1rem 2rem;
+                border-radius: 50px;
+                text-decoration: none;
+                font-weight: 600;
+                transition: all 0.3s ease;
+                position: relative;
+                overflow: hidden;
+            }
+            
+            .action-button-new::before {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 0;
+                height: 0;
+                border-radius: 50%;
+                background: rgba(255, 255, 255, 0.2);
+                transform: translate(-50%, -50%);
+                transition: width 0.6s ease, height 0.6s ease;
+            }
+            
+            .action-button-new:hover::before {
+                width: 300px;
+                height: 300px;
+            }
+            
+            .action-button-new svg,
+            .action-button-new span {
+                position: relative;
+                z-index: 1;
+            }
+            
+            .primary-btn-new {
+                background: linear-gradient(135deg, #7c3aed, #ec4899);
+                color: white;
+                border: none;
+                box-shadow: 0 4px 15px rgba(124, 58, 237, 0.4);
+            }
+            
+            .primary-btn-new:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 6px 25px rgba(124, 58, 237, 0.6);
+            }
+            
+            .secondary-btn-new {
+                background: rgba(255, 255, 255, 0.05);
+                color: white;
+                border: 1px solid rgba(255, 255, 255, 0.2);
+            }
+            
+            .secondary-btn-new:hover {
+                background: rgba(255, 255, 255, 0.1);
+                transform: translateY(-2px);
+            }
+            
+            .tertiary-btn-new {
+                background: transparent;
+                color: rgba(255, 255, 255, 0.8);
+                border: 1px solid rgba(255, 255, 255, 0.2);
+            }
+            
+            .tertiary-btn-new:hover {
+                background: rgba(255, 255, 255, 0.05);
+                color: white;
+                border-color: rgba(255, 255, 255, 0.4);
+                transform: translateY(-2px);
+            }
+            
+            @media (max-width: 768px) {
+                .credits-profile-card {
+                    flex-direction: column;
+                    text-align: center;
+                    padding: 2rem;
+                }
+                
+                .profile-name-new {
+                    font-size: 2.5rem;
+                }
+                
+                .credits-stats-grid {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+                
+                .credits-actions {
+                    flex-direction: column;
+                }
+                
+                .action-button-new {
+                    width: 100%;
+                    justify-content: center;
+                }
+            }
+        </style>
+    `;
+}
+
