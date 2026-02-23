@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Polizia di Stato IPRP</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              policeBlue: '#0a3f78',
+              policeBlueDark: '#032a55',
+              policeBlueSoft: '#2a5f97',
+              policeGold: '#d6ab2e',
+              paper: '#f3f6fa',
+            },
+            boxShadow: {
+              card: '0 6px 18px rgba(3, 42, 85, 0.08)',
+              soft: '0 2px 8px rgba(3, 42, 85, 0.08)',
+            },
+            borderRadius: {
+              soft: '1.05rem',
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      html { scroll-behavior: smooth; }
+    </style>
+  </head>
+  <body class="bg-paper font-sans text-slate-700 antialiased">
+    <header class="sticky top-0 z-40 border-b border-slate-200/80 bg-white/95 backdrop-blur">
+      <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+        <a href="#home" class="flex items-center gap-3">
+          <span class="grid h-10 w-10 place-items-center rounded-full bg-policeBlue text-white shadow-soft">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 2l7 4v6c0 5-3.2 8.7-7 10-3.8-1.3-7-5-7-10V6l7-4z" />
+            </svg>
+          </span>
+          <div>
+            <p class="text-xs font-semibold uppercase tracking-[0.26em] text-policeBlue">Polizia di Stato</p>
+            <p class="text-lg font-bold leading-tight text-policeBlueDark md:text-xl">IPRP - Portale Informativo</p>
+          </div>
+        </a>
+
+        <nav class="hidden items-center gap-7 text-sm font-semibold text-slate-600 md:flex">
+          <a href="#chi-siamo" class="transition hover:text-policeBlue">Chi siamo</a>
+          <a href="#servizi" class="transition hover:text-policeBlue">Servizi</a>
+          <a href="#notizie" class="transition hover:text-policeBlue">Notizie</a>
+          <a href="#contatti" class="rounded-full bg-policeBlue px-5 py-2.5 text-white shadow-soft transition hover:bg-policeBlueDark">Contatti</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="home">
+      <section class="bg-gradient-to-br from-policeBlueDark via-policeBlue to-[#0f5ca5] text-white">
+        <div class="mx-auto grid max-w-7xl gap-10 px-6 py-20 md:grid-cols-2 md:items-center">
+          <div class="space-y-6">
+            <p class="inline-block rounded-full border border-white/25 bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider">Sicurezza e legalità</p>
+            <h1 class="max-w-xl text-5xl font-extrabold leading-[1.05] tracking-tight">
+              Benvenuti nel portale IPRP della Polizia di Stato
+            </h1>
+            <p class="max-w-xl text-xl leading-relaxed text-slate-100/90">
+              Un punto di riferimento per cittadini, famiglie e istituzioni. Informazioni aggiornate,
+              servizi digitali e consigli utili per vivere in una comunità più sicura.
+            </p>
+            <div class="flex flex-wrap gap-3 pt-1">
+              <a href="#servizi" class="rounded-full bg-policeGold px-5 py-3 text-sm font-bold text-policeBlueDark transition hover:brightness-105">Scopri i servizi</a>
+              <a href="#notizie" class="rounded-full border border-white/45 px-5 py-3 text-sm font-bold transition hover:bg-white/10">Leggi le notizie</a>
+            </div>
+          </div>
+
+          <aside class="rounded-[1.6rem] border border-white/20 bg-white/10 p-6 shadow-card backdrop-blur">
+            <h2 class="text-3xl font-bold">Numeri utili</h2>
+            <div class="mt-5 grid gap-4">
+              <article class="rounded-soft bg-white/12 p-4">
+                <p class="text-xs font-semibold uppercase tracking-wider text-slate-200">Emergenze</p>
+                <p class="mt-1 text-5xl font-extrabold">112</p>
+              </article>
+              <article class="rounded-soft bg-white/12 p-4">
+                <p class="text-xs font-semibold uppercase tracking-wider text-slate-200">Segnalazioni online</p>
+                <p class="mt-1 text-lg font-semibold">Sempre attive, 24/7</p>
+              </article>
+              <article class="rounded-soft bg-white/12 p-4">
+                <p class="text-xs font-semibold uppercase tracking-wider text-slate-200">Sportello IPRP</p>
+                <p class="mt-1 text-lg font-semibold">supporto.iprp@interno.it</p>
+              </article>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section id="chi-siamo" class="mx-auto max-w-7xl px-6 py-14">
+        <div class="grid gap-6 md:grid-cols-3">
+          <article class="rounded-soft border border-slate-200 bg-white p-7 shadow-soft transition hover:-translate-y-0.5 hover:shadow-card">
+            <h3 class="text-4xl font-bold tracking-tight text-policeBlueDark">Missione</h3>
+            <p class="mt-3 text-xl leading-relaxed text-slate-600">
+              Tutela della sicurezza pubblica, prevenzione dei reati e sostegno ai cittadini attraverso un approccio vicino al territorio.
+            </p>
+          </article>
+          <article class="rounded-soft border border-slate-200 bg-white p-7 shadow-soft transition hover:-translate-y-0.5 hover:shadow-card">
+            <h3 class="text-4xl font-bold tracking-tight text-policeBlueDark">Trasparenza</h3>
+            <p class="mt-3 text-xl leading-relaxed text-slate-600">
+              Comunicazione chiara, aggiornamenti costanti e servizi digitali per agevolare l'accesso alle informazioni essenziali.
+            </p>
+          </article>
+          <article class="rounded-soft border border-slate-200 bg-white p-7 shadow-soft transition hover:-translate-y-0.5 hover:shadow-card">
+            <h3 class="text-4xl font-bold tracking-tight text-policeBlueDark">Collaborazione</h3>
+            <p class="mt-3 text-xl leading-relaxed text-slate-600">
+              Partnership con scuole, enti locali e associazioni per promuovere la cultura della legalità e della prevenzione.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="servizi" class="bg-white py-16">
+        <div class="mx-auto max-w-7xl px-6">
+          <p class="text-xs font-bold uppercase tracking-[0.28em] text-policeBlue">Servizi digitali</p>
+          <h2 class="mt-2 text-5xl font-extrabold tracking-tight text-policeBlueDark">Tutto ciò che serve, in un unico portale</h2>
+
+          <div class="mt-8 grid gap-6 md:grid-cols-3">
+            <article class="rounded-soft border border-slate-200 p-6 shadow-soft transition hover:-translate-y-0.5 hover:shadow-card">
+              <h3 class="text-3xl font-bold text-policeBlueDark">Denuncia online</h3>
+              <p class="mt-3 text-xl leading-relaxed text-slate-600">Invia pre-segnalazioni e richieste guidate in modo semplice e sicuro.</p>
+            </article>
+            <article class="rounded-soft border border-slate-200 p-6 shadow-soft transition hover:-translate-y-0.5 hover:shadow-card">
+              <h3 class="text-3xl font-bold text-policeBlueDark">Passaporti e documenti</h3>
+              <p class="mt-3 text-xl leading-relaxed text-slate-600">Prenota appuntamenti, consulta lo stato della pratica e ricevi aggiornamenti.</p>
+            </article>
+            <article class="rounded-soft border border-slate-200 p-6 shadow-soft transition hover:-translate-y-0.5 hover:shadow-card">
+              <h3 class="text-3xl font-bold text-policeBlueDark">Educazione alla sicurezza</h3>
+              <p class="mt-3 text-xl leading-relaxed text-slate-600">Materiali dedicati a cyberbullismo, truffe online e tutela dei minori.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="notizie" class="mx-auto max-w-7xl px-6 py-16">
+        <div class="flex items-end justify-between gap-4">
+          <div>
+            <p class="text-xs font-bold uppercase tracking-[0.28em] text-policeBlue">Aggiornamenti</p>
+            <h2 class="mt-2 text-5xl font-extrabold tracking-tight text-policeBlueDark">Ultime notizie e comunicati</h2>
+          </div>
+          <a href="#" class="text-xl font-semibold text-policeBlue hover:text-policeBlueDark">Vedi tutte</a>
+        </div>
+
+        <div class="mt-8 grid gap-6 md:grid-cols-3">
+          <article class="rounded-soft border border-slate-200 bg-white p-6 shadow-soft transition hover:-translate-y-0.5 hover:shadow-card">
+            <p class="text-xs font-bold uppercase tracking-[0.18em] text-policeBlue">Comunicati</p>
+            <h3 class="mt-3 text-3xl font-bold leading-tight text-policeBlueDark">Operazione nazionale contro le truffe informatiche</h3>
+            <p class="mt-3 text-xl leading-relaxed text-slate-600">Azioni coordinate in più regioni per contrastare i reati digitali e proteggere i cittadini più vulnerabili.</p>
+          </article>
+          <article class="rounded-soft border border-slate-200 bg-white p-6 shadow-soft transition hover:-translate-y-0.5 hover:shadow-card">
+            <p class="text-xs font-bold uppercase tracking-[0.18em] text-policeBlue">Territorio</p>
+            <h3 class="mt-3 text-3xl font-bold leading-tight text-policeBlueDark">Incontri nelle scuole sulla cultura della legalità</h3>
+            <p class="mt-3 text-xl leading-relaxed text-slate-600">Prosegue il programma di sensibilizzazione rivolto agli studenti delle scuole secondarie.</p>
+          </article>
+          <article class="rounded-soft border border-slate-200 bg-white p-6 shadow-soft transition hover:-translate-y-0.5 hover:shadow-card">
+            <p class="text-xs font-bold uppercase tracking-[0.18em] text-policeBlue">Servizi</p>
+            <h3 class="mt-3 text-3xl font-bold leading-tight text-policeBlueDark">Nuovo sportello digitale per i cittadini</h3>
+            <p class="mt-3 text-xl leading-relaxed text-slate-600">Interfaccia rinnovata e tempi di risposta più rapidi per le richieste online.</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer id="contatti" class="mt-2 bg-policeBlueDark text-slate-200">
+      <div class="mx-auto grid max-w-7xl gap-8 px-6 py-12 md:grid-cols-3">
+        <div>
+          <h3 class="text-4xl font-bold text-white">Polizia di Stato - IPRP</h3>
+          <p class="mt-3 text-xl leading-relaxed text-slate-300">Al servizio della collettività con impegno, professionalità e trasparenza.</p>
+        </div>
+        <div>
+          <h4 class="text-2xl font-bold text-white">Contatti</h4>
+          <ul class="mt-3 space-y-2 text-xl text-slate-300">
+            <li>Email: supporto.iprp@interno.it</li>
+            <li>Telefono: 06 4651 0000</li>
+            <li>Emergenze: 112</li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-2xl font-bold text-white">Orari</h4>
+          <p class="mt-3 text-xl text-slate-300">Lun - Ven: 08:00 - 18:00</p>
+          <p class="text-xl text-slate-300">Supporto digitale: attivo 24/7</p>
+        </div>
+      </div>
+      <div class="border-t border-white/10 px-6 py-4 text-center text-sm text-slate-400">
+        © 2026 Portale IPRP - Polizia di Stato. Tutti i diritti riservati.
+      </div>
+    </footer>
+  </body>
+</html>
