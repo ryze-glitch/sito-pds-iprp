@@ -1,0 +1,2 @@
+# Riduce i conflitti di merge sul file della landing page, mantenendo la versione del branch.
+index.html merge=ours
