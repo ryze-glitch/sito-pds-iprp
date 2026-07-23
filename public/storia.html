@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Storia della Polizia - IPRP</title>
+    <meta name="description" content="La storia della Polizia di Stato italiana, dal 1848 ad oggi.">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="page-storia">
+
+    <div class="preloader" id="preloader">
+        <img id="preload-logo" src="https://i.imgur.com/gRzOXM3.png" alt="Logo Polizia" />
+    </div>
+
+    <div class="navbar-wrapper" id="navbar">
+        <nav class="navbar">
+            <div class="nav-left">
+                <a href="index.html" class="nav-logo"><img src="https://i.imgur.com/SUM8B5x.png" alt="Logo"> POLIZIA IPRP</a>
+            </div>
+                        <div class="nav-center">
+                <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                <a href="notizie.html"><i class="fas fa-bullhorn"></i> Notizie</a>
+
+                <div class="dropdown">
+                    <a href="#" class="active-link"><i class="fas fa-landmark"></i> Chi Siamo <i class="fas fa-chevron-down" style="font-size: 0.7rem; margin-left: -2px;"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="chi-siamo.html"><i class="fas fa-user-tie"></i> La Dirigenza</a>
+                        <a href="storia.html" class="active-link"><i class="fas fa-book"></i> Storia della Polizia</a>
+                        <a href="chi-siamo.html#mezzi"><i class="fas fa-car"></i> I Nostri Mezzi</a>
+                        <a href="chi-siamo.html#reparti"><i class="fas fa-shield-alt"></i> I Nostri Reparti</a>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <a href="#"><i class="fas fa-hands-helping"></i> Servizi <i class="fas fa-chevron-down" style="font-size: 0.7rem; margin-left: -2px;"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="urp.html"><i class="fas fa-comments"></i> URP</a>
+                        <a href="porto-armi.html"><i class="fas fa-shield-halved"></i> Porto D'Armi</a>
+                        <a href="denuncia.html"><i class="fas fa-file-signature"></i> Denuncia</a>
+                    </div>
+                </div>
+
+                <a href="qualifiche.html"><i class="fas fa-medal"></i> Qualifiche</a>
+                <div class="dropdown">
+                    <a href="prenotazioni.html"><i class="fas fa-calendar-check"></i> Prenota <i class="fas fa-chevron-down" style="font-size: 0.7rem; margin-left: -2px;"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="prenotazioni.html"><i class="fas fa-list-check"></i> Tutti i Servizi</a>
+                        <a href="eventi.html"><i class="fas fa-calendar-plus"></i> Richiesta Evento</a>
+                    </div>
+                </div>
+                <a href="concorso.html"><i class="fas fa-trophy"></i> Concorso Pubblico</a>
+            </div>
+
+            <div class="nav-right">
+                <button class="nav-toggle" id="navToggle" aria-label="Apri menu" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </nav>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html"><i class="fas fa-home"></i> Home</a>
+        <a href="notizie.html"><i class="fas fa-bullhorn"></i> Notizie</a>
+        <div class="mobile-divider"></div>
+        <a href="chi-siamo.html"><i class="fas fa-user-tie"></i> La Dirigenza</a>
+        <a href="storia.html" class="mobile-sub active-link"><i class="fas fa-book"></i> Storia della Polizia</a>
+        <a href="chi-siamo.html#mezzi" class="mobile-sub"><i class="fas fa-car"></i> I Nostri Mezzi</a>
+        <a href="chi-siamo.html#reparti" class="mobile-sub"><i class="fas fa-shield-alt"></i> I Nostri Reparti</a>
+        <div class="mobile-divider"></div>
+        <a href="urp.html"><i class="fas fa-comments"></i> URP</a>
+        <a href="porto-armi.html"><i class="fas fa-shield-halved"></i> Porto D'Armi</a>
+        <a href="denuncia.html"><i class="fas fa-file-signature"></i> Denuncia</a>
+        <div class="mobile-divider"></div>
+        <a href="qualifiche.html"><i class="fas fa-medal"></i> Qualifiche</a>
+        <a href="prenotazioni.html"><i class="fas fa-calendar-check"></i> Prenota</a>
+        <a href="eventi.html" class="mobile-sub"><i class="fas fa-calendar-plus"></i> Richiesta Evento</a>
+        <a href="concorso.html"><i class="fas fa-trophy"></i> Concorso Pubblico</a>
+    </div>
+
+    <header class="hero-small">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <h1>STORIA DELLA POLIZIA</h1>
+            <p>Sub Lege Libertas</p>
+        </div>
+    </header>
+
+    <main class="page-content">
+        <div class="breadcrumb gs-reveal page-anim">
+            Ti trovi qui:
+            <a href="index.html">Home</a>
+            <i class="fas fa-chevron-right" style="font-size: 0.7rem;"></i>
+            <a href="chi-siamo.html">Chi Siamo</a>
+            <i class="fas fa-chevron-right" style="font-size: 0.7rem;"></i>
+            <span>Storia della Polizia</span>
+        </div>
+
+        <div class="storia-panel gs-reveal page-anim">
+            <h2>Storia della Polizia di Stato</h2>
+            <p>La storia della Polizia di Stato italiana è un lungo percorso di trasformazione che riflette i cambiamenti profondi del Paese, passando da una struttura rigidamente militare a un'istituzione civile al servizio della comunità. Tutto ebbe inizio nel 1848 con la fondazione del Corpo delle Guardie di Pubblica Sicurezza nel Regno di Sardegna; un organismo nato con l'ambizioso compito di garantire l'ordine pubblico in un'epoca di grandi fermenti risorgimentali. Con l'Unità d'Italia, il corpo si estese su tutto il territorio nazionale, affrontando sfide epocali come il brigantaggio e le prime grandi tensioni sociali dell'era industriale.</p>
+            <p>Il primo vero spartiacque avvenne con l'avvento del Fascismo, durante il quale la polizia subì una marcata militarizzazione e venne utilizzata dal regime come strumento di controllo politico, anche attraverso la creazione di corpi speciali per la repressione del dissenso. Tuttavia, con la fine della Seconda Guerra Mondiale e la nascita della Repubblica, l'istituzione dovette reinventarsi. Durante gli anni della ricostruzione e i turbolenti "Anni di Piombo", la polizia si trovò in prima linea contro il terrorismo e l'eversione, pagando un altissimo tributo di sangue. Fu proprio in questo clima di tensione che maturò la necessità di una riforma radicale che avvicinasse gli agenti ai cittadini.</p>
+            <p>La svolta decisiva arrivò con la Legge 121 del 1981, che segnò la nascita della moderna Polizia di Stato. Questa riforma non fu solo un cambio di nome, ma una vera rivoluzione culturale: il corpo venne smilitarizzato, furono introdotti i sindacati e, per la prima volta, le donne poterono accedere alla carriera con parità di compiti e gradi rispetto agli uomini. Oggi, la Polizia di Stato si presenta come un corpo civile altamente specializzato, capace di operare in settori d'avanguardia che vanno dal contrasto al cybercrimine con la Polizia Postale, alla sicurezza delle grandi infrastrutture, fino alle operazioni ad alto rischio dei nuclei scelti come i NOCS. Sotto il motto "Sub Lege Libertas", l'istituzione continua a evolversi, bilanciando l'eredità storica con le sfide tecnologiche del nuovo millennio.</p>
+
+            <div class="timeline gs-reveal page-anim">
+                <div class="timeline-item">
+                    <h3>1848 — Fondazione</h3>
+                    <p>Nasce il Corpo delle Guardie di Pubblica Sicurezza nel Regno di Sardegna, con il compito di garantire l'ordine pubblico nei fermenti risorgimentali.</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>1861 — Unità d'Italia</h3>
+                    <p>Il corpo si estende su tutto il territorio nazionale, fronteggiando il brigantaggio e le tensioni sociali dell'era industriale.</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>1945 — Nascita della Repubblica</h3>
+                    <p>Con la caduta del Fascismo, la Polizia si reinventa come istituzione al servizio della democrazia e dei cittadini.</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>1981 — Legge 121</h3>
+                    <p>Nasce la moderna Polizia di Stato: smilitarizzata, con sindacati e parità di accesso per le donne. Una rivoluzione culturale profonda.</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>Oggi — Sub Lege Libertas</h3>
+                    <p>La Polizia di Stato è un corpo civile altamente specializzato, attivo dal cybercrimine alla sicurezza delle infrastrutture, fino ai NOCS.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>Sito Ufficiale della Polizia di Stato - Server IPRP | Solo a scopo Roleplay.</p>
+        <p style="margin-top:10px;font-size:0.8rem;opacity:0.6;">Creato da Ryze e DragonFire - IPRP</p>
+    </footer>
+    <div class="legal-disclaimer">
+        <div class="disclaimer-inner">
+            <i class="fas fa-info-circle"></i>
+            <p>Si informa che il presente sito non ha alcun valore reale o legale ed è stato creato esclusivamente per scopi di intrattenimento legati al videogioco chiamato IPRP. Tutti i contenuti, le informazioni e i riferimenti presenti su questo sito sono puramente fittizi e non devono essere interpretati come dati reali o utilizzabili al di fuori del contesto videoludico. Il sito è progettato per arricchire l'esperienza di gioco e fornire un ambiente immersivo per i giocatori, ma non riflette alcuna realtà esistente. Nessun contenuto può essere utilizzato per scopi legali, commerciali o di qualsiasi altra natura al di fuori dell'ambito del gioco IPRP. Si invita a non fare affidamento sulle informazioni presenti per decisioni o azioni nel mondo reale. L'utilizzo del sito deve essere considerato unicamente come parte dell'esperienza videoludica. <a href="https://www.iprp.it" target="_blank">www.iprp.it</a></p>
+        </div>
+    </div>
+
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

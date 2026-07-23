@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prenota - Polizia di Stato IPRP</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body class="page-prenotazioni">
+
+    <div class="preloader" id="preloader">
+        <img id="preload-logo" src="https://i.imgur.com/gRzOXM3.png" alt="Logo Polizia" />
+    </div>
+
+    
+    <div class="navbar-wrapper" id="navbar">
+        <nav class="navbar">
+            <div class="nav-left">
+                <a href="index.html" class="nav-logo">
+                    <img src="https://i.imgur.com/SUM8B5x.png" alt="Logo">
+                    POLIZIA IPRP
+                </a>
+            </div>
+
+                        <div class="nav-center">
+                <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                <a href="notizie.html"><i class="fas fa-bullhorn"></i> Notizie</a>
+
+                <div class="dropdown">
+                    <a href="#"><i class="fas fa-landmark"></i> Chi Siamo <i class="fas fa-chevron-down" style="font-size: 0.7rem; margin-left: -2px;"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="chi-siamo.html"><i class="fas fa-user-tie"></i> La Dirigenza</a>
+                        <a href="storia.html"><i class="fas fa-book"></i> Storia della Polizia</a>
+                        <a href="chi-siamo.html#mezzi"><i class="fas fa-car"></i> I Nostri Mezzi</a>
+                        <a href="chi-siamo.html#reparti"><i class="fas fa-shield-alt"></i> I Nostri Reparti</a>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <a href="#"><i class="fas fa-hands-helping"></i> Servizi <i class="fas fa-chevron-down" style="font-size: 0.7rem; margin-left: -2px;"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="urp.html"><i class="fas fa-comments"></i> URP</a>
+                        <a href="porto-armi.html"><i class="fas fa-shield-halved"></i> Porto D'Armi</a>
+                        <a href="denuncia.html"><i class="fas fa-file-signature"></i> Denuncia</a>
+                    </div>
+                </div>
+
+                <a href="qualifiche.html"><i class="fas fa-medal"></i> Qualifiche</a>
+                <div class="dropdown">
+                    <a href="prenotazioni.html" class="active-link"><i class="fas fa-calendar-check"></i> Prenota <i class="fas fa-chevron-down" style="font-size: 0.7rem; margin-left: -2px;"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="prenotazioni.html"><i class="fas fa-list-check"></i> Tutti i Servizi</a>
+                        <a href="eventi.html"><i class="fas fa-calendar-plus"></i> Richiesta Evento</a>
+                    </div>
+                </div>
+                <a href="concorso.html"><i class="fas fa-trophy"></i> Concorso Pubblico</a>
+            </div>
+
+            <div class="nav-right">
+                <button class="nav-toggle" id="navToggle" aria-label="Apri menu" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </nav>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html"><i class="fas fa-home"></i> Home</a>
+        <a href="notizie.html"><i class="fas fa-bullhorn"></i> Notizie</a>
+        <div class="mobile-divider"></div>
+        <a href="chi-siamo.html"><i class="fas fa-user-tie"></i> La Dirigenza</a>
+        <a href="storia.html" class="mobile-sub"><i class="fas fa-book"></i> Storia della Polizia</a>
+        <a href="chi-siamo.html#mezzi" class="mobile-sub"><i class="fas fa-car"></i> I Nostri Mezzi</a>
+        <a href="chi-siamo.html#reparti" class="mobile-sub"><i class="fas fa-shield-alt"></i> I Nostri Reparti</a>
+        <div class="mobile-divider"></div>
+        <a href="urp.html"><i class="fas fa-comments"></i> URP</a>
+        <a href="porto-armi.html"><i class="fas fa-shield-halved"></i> Porto D'Armi</a>
+        <a href="denuncia.html"><i class="fas fa-file-signature"></i> Denuncia</a>
+        <div class="mobile-divider"></div>
+        <a href="qualifiche.html"><i class="fas fa-medal"></i> Qualifiche</a>
+        <a href="prenotazioni.html" class="active-link"><i class="fas fa-calendar-check"></i> Prenota</a>
+        <a href="eventi.html" class="mobile-sub"><i class="fas fa-calendar-plus"></i> Richiesta Evento</a>
+        <a href="concorso.html"><i class="fas fa-trophy"></i> Concorso Pubblico</a>
+    </div>
+
+    <header class="hero-small">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <h1>Prenota</h1>
+            <p>Servizi al cittadino</p>
+        </div>
+    </header>
+
+    <main class="page-content">
+
+        <div class="breadcrumb gs-reveal page-anim">
+            Ti trovi qui:
+            <a href="index.html">Home</a>
+            <i class="fas fa-chevron-right" style="font-size: 0.7rem;"></i>
+            <span>Prenota</span>
+        </div>
+
+        <div class="prenota-container">
+            <div class="prenota-header gs-reveal page-anim">
+                <h1>Prenota un <span>Servizio</span></h1>
+                <p class="prenota-intro">Stanco di andare in Questura e non trovare nessun operatore al desk? Prenota ora il servizio che desideri ricevere.</p>
+            </div>
+
+            <div class="prenota-layout">
+
+                <aside class="prenota-side">
+                    <div class="prenota-select-wrapper gs-reveal page-anim">
+                        <label for="prenota-select" class="prenota-select-label"><i class="fas fa-list-check"></i> Seleziona il servizio da prenotare</label>
+                        <div class="prenota-select-box">
+                            <select id="prenota-select" onchange="cambiaFormPrenotazione(this.value)">
+                                <option value="colloquio">Colloquio di Lavoro</option>
+                                <option value="pda">Richiesta / Rilascio P.D.A.</option>
+                                <option value="urp">URP e Denunce</option>
+                                <option value="eventi">Richiesta Eventi</option>
+                            </select>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+
+                    <div class="prenota-info-box gs-reveal page-anim">
+                        <p>
+                            <span class="icon"><i class="fas fa-info-circle"></i></span>
+                            La tua prenotazione verrà visionata da un operatore il prima possibile, nel canale #sito-web verrà segnata la notifica di prenotazione eseguita con successo. Attendi quindi tale comunicato.
+                        </p>
+                        <p>
+                            <span class="icon"><i class="fas fa-clock"></i></span>
+                            Le prenotazioni sono sempre sospese per le giornate di Sabato e Domenica.
+                        </p>
+                    </div>
+                </aside>
+
+                <div class="form-container gs-reveal page-anim">
+                    <iframe id="prenota-iframe" src="https://docs.google.com/forms/d/e/1FAIpQLSdZFH6-Sj2hgVSGOyAlckgIvkKhZ5qtZmb_OVB6W6LPw0NAiA/viewform?embedded=true" frameborder="0" marginheight="0" marginwidth="0" loading="lazy">Caricamento…</iframe>
+                </div>
+
+            </div>
+
+            <script>
+                const prenotaForms = {
+                    colloquio: "https://docs.google.com/forms/d/e/1FAIpQLSdZFH6-Sj2hgVSGOyAlckgIvkKhZ5qtZmb_OVB6W6LPw0NAiA/viewform?embedded=true",
+                    pda: "https://docs.google.com/forms/d/e/1FAIpQLSdZFH6-Sj2hgVSGOyAlckgIvkKhZ5qtZmb_OVB6W6LPw0NAiA/viewform?embedded=true",
+                    urp: "https://docs.google.com/forms/d/e/1FAIpQLSdZFH6-Sj2hgVSGOyAlckgIvkKhZ5qtZmb_OVB6W6LPw0NAiA/viewform?embedded=true",
+                    eventi: "https://docs.google.com/forms/d/e/1FAIpQLSdwm849kgXZQk9nv7puT57-qhqRtek-JknfXcEC-37ek7StrA/viewform?embedded=true"
+                };
+                function cambiaFormPrenotazione(tipo) {
+                    const iframe = document.getElementById('prenota-iframe');
+                    if (iframe && prenotaForms[tipo]) {
+                        iframe.src = prenotaForms[tipo];
+                    }
+                }
+            </script>
+
+            <div class="prenota-grid gs-grid">
+
+                <div class="cubotto-card gs-card gs-reveal">
+                    <h3>PRENOTAZIONE COLLOQUIO DI LAVORO</h3>
+                    <p>Prenotazione per lo svolgimento del colloquio di valutazione finalizzato all'ammissione nel corpo della Polizia di Stato. Il colloquio rappresenta una fase importante del processo di selezione, durante la quale verranno valutate le competenze, la motivazione e l'idoneità dei candidati a entrare a far parte di questa prestigiosa istituzione.</p>
+                </div>
+
+                <div class="cubotto-card gs-card gs-reveal">
+                    <h3>PRENOTAZIONE RICHIESTA / RILASCIO P.D.A.</h3>
+                    <p>Prenotazione per presentare la richiesta del porto d'armi e, nel caso in cui la domanda sia già stata inoltrata e tutti i passaggi necessari siano stati completati, per richiedere il rilascio definitivo della licenza. Questa procedura è essenziale per garantire che la richiesta venga valutata correttamente e che, in presenza di tutti i requisiti, venga emesso il porto d'armi ufficiale.</p>
+                    <div class="attenzione-text">
+                        <i class="fas fa-exclamation-triangle"></i> ATTENZIONE, Consultati con la pagina Licenza di porto d'armi.
+                    </div>
+                    <a href="porto-armi.html" style="display:inline-flex;align-items:center;gap:8px;margin-top:12px;background:rgba(37,99,235,0.15);color:var(--accent-blue);padding:8px 16px;border-radius:999px;font-size:0.9rem;font-weight:600;border:1px solid rgba(37,99,235,0.3);transition:all 0.2s;" onmouseover="this.style.background='rgba(37,99,235,0.3)'" onmouseout="this.style.background='rgba(37,99,235,0.15)'">
+                        <i class="fas fa-external-link-alt"></i> Vai alla pagina Licenza di Porto d'Armi
+                    </a>
+                </div>
+
+                <div class="cubotto-card gs-card gs-reveal">
+                    <h3>PRENOTAZIONE URP e DENUNCE</h3>
+                    <p>Prenotazione per effettuare una denuncia o per richiedere un appuntamento con l'Ufficio RCP. Questa prenotazione è necessaria per garantire una gestione efficiente delle pratiche e per assicurare che ogni richiesta venga trattata con la massima attenzione. Durante l'appuntamento, sarà possibile discutere dettagliatamente della denuncia e ricevere assistenza adeguata da parte del personale dell'ufficio.</p>
+                </div>
+
+                <div class="cubotto-card gs-card gs-reveal" style="border-color: rgba(212,175,55,0.35);">
+                    <h3 style="color: var(--accent-gold);">RICHIESTA EVENTI</h3>
+                    <p>Prenotazione dedicata all'organizzazione e all'autorizzazione di manifestazioni o riunioni in luogo pubblico. Ricorda che, ai sensi dell'art. 18 TULPS, i promotori di riunioni in luogo pubblico aperto al pubblico devono avvisare il Questore con almeno 3 giorni di preavviso.</p>
+                    <a href="eventi.html" style="display:inline-flex;align-items:center;gap:8px;margin-top:12px;background:rgba(212,175,55,0.15);color:var(--accent-gold);padding:8px 16px;border-radius:999px;font-size:0.9rem;font-weight:600;border:1px solid rgba(212,175,55,0.3);transition:all 0.2s;" onmouseover="this.style.background='rgba(212,175,55,0.3)'" onmouseout="this.style.background='rgba(212,175,55,0.15)'">
+                        <i class="fas fa-calendar-plus"></i> Vai alla Richiesta Eventi
+                    </a>
+                </div>
+
+                <div class="cubotto-card gs-card gs-reveal" style="border-style: dashed;">
+                    <h3 style="color: var(--text-muted);">ALTRE PRENOTAZIONI</h3>
+                    <p style="text-align: center; margin-top: 10px;">Per altre tipologie di richieste non elencate, contatta gli operatori al desk in Questura quando disponibili o attendi ulteriori aggiornamenti dei servizi.</p>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>Sito Ufficiale della Polizia di Stato - Server IPRP | Solo a scopo Roleplay.</p>
+        <p style="margin-top: 10px; font-size: 0.8rem; opacity: 0.6;">Creato da Ryze e DragonFire - IPRP</p>
+    </footer>
+    <div class="legal-disclaimer">
+        <div class="disclaimer-inner">
+            <i class="fas fa-info-circle"></i>
+            <p>Si informa che il presente sito non ha alcun valore reale o legale ed è stato creato esclusivamente per scopi di intrattenimento legati al videogioco chiamato IPRP. Tutti i contenuti, le informazioni e i riferimenti presenti su questo sito sono puramente fittizi e non devono essere interpretati come dati reali o utilizzabili al di fuori del contesto videoludico. Il sito è progettato per arricchire l'esperienza di gioco e fornire un ambiente immersivo per i giocatori, ma non riflette alcuna realtà esistente. Nessun contenuto può essere utilizzato per scopi legali, commerciali o di qualsiasi altra natura al di fuori dell'ambito del gioco IPRP. Si invita a non fare affidamento sulle informazioni presenti per decisioni o azioni nel mondo reale. L'utilizzo del sito deve essere considerato unicamente come parte dell'esperienza videoludica. <a href="https://www.iprp.it" target="_blank">www.iprp.it</a></p>
+        </div>
+    </div>
+
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

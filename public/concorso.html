@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Concorso - Polizia di Stato IPRP</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Firebase SDK - Foto Concorso -->
+    <script type="module">
+      import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
+      import { getFirestore, collection, getDocs } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyBrBkzLE_0MLQEXB9YBDW7G05n6aI_ykA0",
+        authDomain: "polizia-iprp.firebaseapp.com",
+        projectId: "polizia-iprp",
+        storageBucket: "polizia-iprp.firebasestorage.app",
+        messagingSenderId: "295622243589",
+        appId: "1:295622243589:web:abfd6d06dac2f95428f36c"
+      };
+
+      const app = initializeApp(firebaseConfig);
+      const db = getFirestore(app);
+
+      function hideOnError(el) { el.style.display = 'none'; }
+
+      async function loadFotoConcorso() {
+        const container = document.getElementById('galleria-concorso');
+        try {
+          const snap = await getDocs(collection(db, 'FOTOPDS'));
+          let imgs = [];
+          snap.forEach(doc => {
+            const d = doc.data();
+            // Raccoglie tutti i campi immagine-*
+            Object.keys(d).filter(k => k.toLowerCase().startsWith('immagine-')).sort().forEach(k => {
+              if (d[k]) imgs.push(d[k]);
+            });
+          });
+          if (imgs.length === 0) { container.innerHTML = '<p style="color:var(--text-muted);text-align:center;padding:20px;">Nessuna foto disponibile.</p>'; return; }
+          container.innerHTML = '<div class="gallery-grid">' + imgs.map(src => '<img class="gallery-img" src="' + src + '" alt="Polizia di Stato" onerror="this.style.display=\'none\'">').join('') + '</div>';
+        } catch(e) {
+          container.innerHTML = '<p style="color:#ef4444;text-align:center;">Errore caricamento foto.</p>';
+        }
+      }
+
+      window.addEventListener('DOMContentLoaded', loadFotoConcorso);
+    </script>
+</head>
+
+<body class="page-concorso">
+
+    <div class="preloader" id="preloader">
+        <img id="preload-logo" src="https://i.imgur.com/gRzOXM3.png" alt="Logo Polizia" />
+    </div>
+
+    
+    <div class="navbar-wrapper" id="navbar">
+        <nav class="navbar">
+            <div class="nav-left">
+                <a href="index.html" class="nav-logo">
+                    <img src="https://i.imgur.com/SUM8B5x.png" alt="Logo">
+                    POLIZIA IPRP
+                </a>
+            </div>
+
+                        <div class="nav-center">
+                <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                <a href="notizie.html"><i class="fas fa-bullhorn"></i> Notizie</a>
+
+                <div class="dropdown">
+                    <a href="#"><i class="fas fa-landmark"></i> Chi Siamo <i class="fas fa-chevron-down" style="font-size: 0.7rem; margin-left: -2px;"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="chi-siamo.html"><i class="fas fa-user-tie"></i> La Dirigenza</a>
+                        <a href="storia.html"><i class="fas fa-book"></i> Storia della Polizia</a>
+                        <a href="chi-siamo.html#mezzi"><i class="fas fa-car"></i> I Nostri Mezzi</a>
+                        <a href="chi-siamo.html#reparti"><i class="fas fa-shield-alt"></i> I Nostri Reparti</a>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <a href="#"><i class="fas fa-hands-helping"></i> Servizi <i class="fas fa-chevron-down" style="font-size: 0.7rem; margin-left: -2px;"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="urp.html"><i class="fas fa-comments"></i> URP</a>
+                        <a href="porto-armi.html"><i class="fas fa-shield-halved"></i> Porto D'Armi</a>
+                        <a href="denuncia.html"><i class="fas fa-file-signature"></i> Denuncia</a>
+                    </div>
+                </div>
+
+                <a href="qualifiche.html"><i class="fas fa-medal"></i> Qualifiche</a>
+                <div class="dropdown">
+                    <a href="prenotazioni.html"><i class="fas fa-calendar-check"></i> Prenota <i class="fas fa-chevron-down" style="font-size: 0.7rem; margin-left: -2px;"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="prenotazioni.html"><i class="fas fa-list-check"></i> Tutti i Servizi</a>
+                        <a href="eventi.html"><i class="fas fa-calendar-plus"></i> Richiesta Evento</a>
+                    </div>
+                </div>
+                <a href="concorso.html" class="active-link"><i class="fas fa-trophy"></i> Concorso Pubblico</a>
+            </div>
+
+            <div class="nav-right">
+                <button class="nav-toggle" id="navToggle" aria-label="Apri menu" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </nav>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html"><i class="fas fa-home"></i> Home</a>
+        <a href="notizie.html"><i class="fas fa-bullhorn"></i> Notizie</a>
+        <div class="mobile-divider"></div>
+        <a href="chi-siamo.html"><i class="fas fa-user-tie"></i> La Dirigenza</a>
+        <a href="storia.html" class="mobile-sub"><i class="fas fa-book"></i> Storia della Polizia</a>
+        <a href="chi-siamo.html#mezzi" class="mobile-sub"><i class="fas fa-car"></i> I Nostri Mezzi</a>
+        <a href="chi-siamo.html#reparti" class="mobile-sub"><i class="fas fa-shield-alt"></i> I Nostri Reparti</a>
+        <div class="mobile-divider"></div>
+        <a href="urp.html"><i class="fas fa-comments"></i> URP</a>
+        <a href="porto-armi.html"><i class="fas fa-shield-halved"></i> Porto D'Armi</a>
+        <a href="denuncia.html"><i class="fas fa-file-signature"></i> Denuncia</a>
+        <div class="mobile-divider"></div>
+        <a href="qualifiche.html"><i class="fas fa-medal"></i> Qualifiche</a>
+        <a href="prenotazioni.html"><i class="fas fa-calendar-check"></i> Prenota</a>
+        <a href="eventi.html" class="mobile-sub"><i class="fas fa-calendar-plus"></i> Richiesta Evento</a>
+        <a href="concorso.html" class="active-link"><i class="fas fa-trophy"></i> Concorso Pubblico</a>
+    </div>
+
+    <header class="hero-small">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <h1>CONCORSI IN ATTO</h1>
+            <p>Arruolamento e Formazione</p>
+        </div>
+    </header>
+
+    <main class="page-content">
+
+        <div class="breadcrumb gs-reveal page-anim">
+            Ti trovi qui:
+            <a href="index.html">Home</a>
+            <i class="fas fa-chevron-right" style="font-size: 0.7rem;"></i>
+            <span>Concorso</span>
+        </div>
+
+        <!-- HERO BANNER CONCORSO -->
+        <div class="concorso-hero-banner gs-reveal page-anim">
+            <img src="https://i.imgur.com/gRzOXM3.png" alt="Stemma PDS" style="width:100px;filter:drop-shadow(0 0 20px rgba(37,99,235,0.5));margin-bottom:20px;">
+            <h2 style="font-size:2.8rem;font-weight:800;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;">Concorso Pubblico</h2>
+            <p style="font-size:1.2rem;color:var(--accent-blue);font-weight:600;font-style:italic;margin-bottom:10px;">La tua passione, la nostra forza!</p>
+            <p style="color:#ef4444;font-weight:700;font-size:1.3rem;text-transform:uppercase;letter-spacing:1px;">Entra a far parte della Polizia di Stato</p>
+
+            <div class="concorso-stats">
+                <div class="stat-item">
+                    <span class="stat-num"><i class="fas fa-users"></i></span>
+                    <span class="stat-label">Posti Disponibili</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-num">3</span>
+                    <span class="stat-label">Fasi di Selezione</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-num"><i class="fas fa-infinity"></i></span>
+                    <span class="stat-label">Candidature Aperte</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- REQUISITI -->
+        <div class="concorso-panel gs-reveal page-anim" style="margin-bottom:30px;">
+            <h2 style="font-size:1.8rem;font-weight:800;margin-bottom:30px;text-transform:uppercase;text-align:center;color:var(--accent-blue);">
+                <i class="fas fa-clipboard-list" style="margin-right:10px;"></i>Requisiti di Partecipazione
+            </h2>
+            <div class="requisiti-grid">
+                <div class="requisito-item">
+                    <div class="requisito-icon"><i class="fas fa-file-medical"></i></div>
+                    <div class="requisito-text"><h4>Certificato Anamnestico</h4><p>Possesso del certificato medico di idoneità fisica.</p></div>
+                </div>
+                <div class="requisito-item">
+                    <div class="requisito-icon"><i class="fas fa-birthday-cake"></i></div>
+                    <div class="requisito-text"><h4>Età Minima OOC</h4><p>Devi avere almeno 16 anni fuori dal personaggio.</p></div>
+                </div>
+                <div class="requisito-item">
+                    <div class="requisito-icon"><i class="fas fa-id-card"></i></div>
+                    <div class="requisito-text"><h4>Età Minima IC</h4><p>Il tuo personaggio deve avere almeno 18 anni.</p></div>
+                </div>
+                <div class="requisito-item">
+                    <div class="requisito-icon"><i class="fas fa-balance-scale"></i></div>
+                    <div class="requisito-text"><h4>Fedina Penale Pulita</h4><p>Nessun precedente penale nel personaggio.</p></div>
+                </div>
+            </div>
+            <p style="font-style:italic;font-size:0.85rem;color:#71717a;margin-top:20px;border-top:1px solid rgba(255,255,255,0.05);padding-top:15px;text-align:center;">
+                In caso i requisiti non venissero rispettati, il bando POTREBBE essere rifiutato, a discrezione della commissione esaminatrice.
+            </p>
+        </div>
+
+        <!-- FASI SELEZIONE -->
+        <div class="concorso-panel gs-reveal page-anim" style="margin-bottom:30px;">
+            <h2 style="font-size:1.8rem;font-weight:800;margin-bottom:30px;text-transform:uppercase;text-align:center;color:var(--accent-blue);">
+                <i class="fas fa-list-ol" style="margin-right:10px;"></i>Fasi di Selezione
+            </h2>
+            <div class="fasi-timeline">
+                <div class="fase-step">
+                    <div class="fase-num">1</div>
+                    <div class="fase-content"><h4>Invio Candidatura</h4><p>Compila il modulo di candidatura online. Indica motivazioni, esperienza RP e disponibilità. La commissione valuterà la domanda entro 48 ore.</p></div>
+                </div>
+                <div class="fase-step">
+                    <div class="fase-num">2</div>
+                    <div class="fase-content"><h4>Colloquio Conoscitivo</h4><p>Colloquio con un ufficiale della Polizia di Stato. Verrà valutata la motivazione e la conoscenza del regolamento.</p></div>
+                </div>
+                <div class="fase-step">
+                    <div class="fase-num">3</div>
+                    <div class="fase-content"><h4>Periodo di Prova & Giuramento</h4><p>Periodo di formazione sul campo sotto la supervisione di un agente senior. Al termine si svolge la cerimonia di giuramento.</p></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PULSANTI AZIONE -->
+        <div class="gs-reveal page-anim" style="text-align:center;margin-bottom:60px;">
+            <div class="btn-group-new">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdGlyzGP_D0WaKKN1nskvH0Lp-xEbQSFxGwCYVLnRpp4w9Big/viewform" target="_blank" class="btn-candidati">
+                    <i class="fas fa-paper-plane"></i> Candidati Ora!
+                </a>
+                <a href="https://docs.google.com/document/d/1jKyMe9JLYtJQOiVsTa0mBO3ps8M1ChdCyf-hwvJxQY8/edit?tab=t.0" target="_blank" class="btn-materiale">
+                    <i class="fas fa-book-open"></i> Materiale di Studio
+                </a>
+            </div>
+        </div>
+
+        <!-- GALLERIA FOTO da Firebase -->
+        <div class="foto-gallery gs-reveal page-anim">
+            <h2 style="font-size:1.8rem;font-weight:800;text-transform:uppercase;text-align:center;margin-bottom:10px;">
+                <i class="fas fa-images" style="margin-right:10px;color:var(--accent-blue);"></i>Galleria
+            </h2>
+            <p style="text-align:center;color:var(--text-muted);margin-bottom:24px;font-size:0.9rem;">Immagini della Polizia di Stato - IPRP</p>
+            <div id="galleria-concorso">
+                <div style="text-align:center;padding:30px;color:var(--text-muted);">
+                    <i class="fas fa-spinner fa-spin" style="font-size:1.5rem;display:block;margin-bottom:10px;"></i>
+                    Caricamento galleria...
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>Sito Ufficiale della Polizia di Stato - Server IPRP | Solo a scopo Roleplay.</p>
+        <p style="margin-top: 10px; font-size: 0.8rem; opacity: 0.6;">Creato da Ryze e DragonFire - IPRP</p>
+    </footer>
+    <div class="legal-disclaimer">
+        <div class="disclaimer-inner">
+            <i class="fas fa-info-circle"></i>
+            <p>Si informa che il presente sito non ha alcun valore reale o legale ed è stato creato esclusivamente per scopi di intrattenimento legati al videogioco chiamato IPRP. Tutti i contenuti, le informazioni e i riferimenti presenti su questo sito sono puramente fittizi e non devono essere interpretati come dati reali o utilizzabili al di fuori del contesto videoludico. Il sito è progettato per arricchire l'esperienza di gioco e fornire un ambiente immersivo per i giocatori, ma non riflette alcuna realtà esistente. Nessun contenuto può essere utilizzato per scopi legali, commerciali o di qualsiasi altra natura al di fuori dell'ambito del gioco IPRP. Si invita a non fare affidamento sulle informazioni presenti per decisioni o azioni nel mondo reale. L'utilizzo del sito deve essere considerato unicamente come parte dell'esperienza videoludica. <a href="https://www.iprp.it" target="_blank">www.iprp.it</a></p>
+        </div>
+    </div>
+
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

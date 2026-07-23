@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notizie - Polizia di Stato IPRP</title>
+    <meta name="description" content="Comunicazioni ufficiali e aggiornamenti della Polizia di Stato IPRP.">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body class="page-notizie">
+
+    <div class="preloader" id="preloader">
+        <img id="preload-logo" src="https://i.imgur.com/gRzOXM3.png" alt="Logo Polizia" />
+    </div>
+
+    <div class="navbar-wrapper" id="navbar">
+        <nav class="navbar">
+            <div class="nav-left">
+                <a href="index.html" class="nav-logo">
+                    <img src="https://i.imgur.com/SUM8B5x.png" alt="Logo">
+                    POLIZIA IPRP
+                </a>
+            </div>
+                        <div class="nav-center">
+                <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                <a href="notizie.html" class="active-link"><i class="fas fa-bullhorn"></i> Notizie</a>
+
+                <div class="dropdown">
+                    <a href="#"><i class="fas fa-landmark"></i> Chi Siamo <i class="fas fa-chevron-down" style="font-size: 0.7rem; margin-left: -2px;"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="chi-siamo.html"><i class="fas fa-user-tie"></i> La Dirigenza</a>
+                        <a href="storia.html"><i class="fas fa-book"></i> Storia della Polizia</a>
+                        <a href="chi-siamo.html#mezzi"><i class="fas fa-car"></i> I Nostri Mezzi</a>
+                        <a href="chi-siamo.html#reparti"><i class="fas fa-shield-alt"></i> I Nostri Reparti</a>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <a href="#"><i class="fas fa-hands-helping"></i> Servizi <i class="fas fa-chevron-down" style="font-size: 0.7rem; margin-left: -2px;"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="urp.html"><i class="fas fa-comments"></i> URP</a>
+                        <a href="porto-armi.html"><i class="fas fa-shield-halved"></i> Porto D'Armi</a>
+                        <a href="denuncia.html"><i class="fas fa-file-signature"></i> Denuncia</a>
+                    </div>
+                </div>
+
+                <a href="qualifiche.html"><i class="fas fa-medal"></i> Qualifiche</a>
+                <div class="dropdown">
+                    <a href="prenotazioni.html"><i class="fas fa-calendar-check"></i> Prenota <i class="fas fa-chevron-down" style="font-size: 0.7rem; margin-left: -2px;"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="prenotazioni.html"><i class="fas fa-list-check"></i> Tutti i Servizi</a>
+                        <a href="eventi.html"><i class="fas fa-calendar-plus"></i> Richiesta Evento</a>
+                    </div>
+                </div>
+                <a href="concorso.html"><i class="fas fa-trophy"></i> Concorso Pubblico</a>
+            </div>
+
+            <div class="nav-right">
+                <button class="nav-toggle" id="navToggle" aria-label="Apri menu" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </nav>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html"><i class="fas fa-home"></i> Home</a>
+        <a href="notizie.html" class="active-link"><i class="fas fa-bullhorn"></i> Notizie</a>
+        <div class="mobile-divider"></div>
+        <a href="chi-siamo.html"><i class="fas fa-user-tie"></i> La Dirigenza</a>
+        <a href="storia.html" class="mobile-sub"><i class="fas fa-book"></i> Storia della Polizia</a>
+        <a href="chi-siamo.html#mezzi" class="mobile-sub"><i class="fas fa-car"></i> I Nostri Mezzi</a>
+        <a href="chi-siamo.html#reparti" class="mobile-sub"><i class="fas fa-shield-alt"></i> I Nostri Reparti</a>
+        <div class="mobile-divider"></div>
+        <a href="urp.html"><i class="fas fa-comments"></i> URP</a>
+        <a href="porto-armi.html"><i class="fas fa-shield-halved"></i> Porto D'Armi</a>
+        <a href="denuncia.html"><i class="fas fa-file-signature"></i> Denuncia</a>
+        <div class="mobile-divider"></div>
+        <a href="qualifiche.html"><i class="fas fa-medal"></i> Qualifiche</a>
+        <a href="prenotazioni.html"><i class="fas fa-calendar-check"></i> Prenota</a>
+        <a href="eventi.html" class="mobile-sub"><i class="fas fa-calendar-plus"></i> Richiesta Evento</a>
+        <a href="concorso.html"><i class="fas fa-trophy"></i> Concorso Pubblico</a>
+    </div>
+
+    <header class="hero-small">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <h1>NOTIZIE</h1>
+            <p>Comunicazioni Ufficiali e Aggiornamenti</p>
+        </div>
+    </header>
+
+    <main class="page-content">
+
+        <div class="breadcrumb gs-reveal page-anim">
+            Ti trovi qui:
+            <a href="index.html">Home</a>
+            <i class="fas fa-chevron-right" style="font-size: 0.7rem;"></i>
+            <span>Notizie</span>
+        </div>
+
+        <article class="news-article gs-reveal page-anim">
+            <div class="news-text-content">
+                <div class="news-date"><i class="far fa-calendar-alt"></i> 11 Maggio 2025</div>
+                <h2 class="news-title">La Polizia di Stato è in lutto per la scomparsa di Derek Morgan</h2>
+                <p>Oggi, 11 maggio 2025, la Polizia di Stato piange la scomparsa del nostro caro collega Derek Morgan.
+                    Dopo aver lottato con tutte le sue forze fino all'ultimo momento, purtroppo non ce l'ha fatta.</p>
+                <p>Con la sua perdita, la Polizia non perde solo un valido agente, ma un amico, un fratello, una
+                    presenza sempre pronta a sostenere e a combattere ogni difficoltà con impegno e determinazione.
+                    Derek Morgan è stato un esempio di dedizione e professionalità, lasciando un segno indelebile in
+                    tutti coloro che hanno avuto l'onore di lavorare al suo fianco.</p>
+                <p>Alla sua famiglia e ai suoi cari va il nostro più profondo cordoglio e la vicinanza di tutto il
+                    Corpo. La sua memoria continuerà a vivere nei cuori di chi lo ha conosciuto e stimato.</p>
+            </div>
+            <img class="news-image" src="foto/notizie/lutto.png" alt="Scomparsa Derek Morgan">
+        </article>
+
+  <article class="news-article gs-reveal page-anim">
+            <div class="news-text-content">
+                <div class="news-date"><i class="far fa-calendar-alt"></i> 6 Luglio 2024</div>
+                <h2 class="news-title">Cambio Dirigenti in Questura di Roma</h2>
+                <p>Oggi, 6 Luglio 2024 il Vice Questore Marco Ferri è stato nominato Questore della Questura di Roma col
+                    grado di Dirigente Generale.</p>
+                <p>Il Dirigente Generale della Polizia di Stato, Marco Ferri, si è laureato in Giurisprudenza
+                    all'università di Roma. Nel 2021 ha partecipato all'80° concorso per commissari, vincendo il
+                    concorso nel 2023. Successivamente è stato trasferito a Roma con l'incarico di Dirigente generale di
+                    Pubblica Sicurezza.</p>
+            </div>
+            <img class="news-image" src="foto/notizie/king.png" alt="Cambio Dirigenti 6 Luglio 2024">
+        </article>
+
+
+        <article class="news-article gs-reveal page-anim">
+            <div class="news-text-content">
+                <div class="news-date"><i class="far fa-calendar-alt"></i> 5 Aprile 2024</div>
+                <h2 class="news-title">Cambio Dirigenti in Questura di Roma</h2>
+              <p>Oggi, 5 Aprile 2024 il Commissario Matteo Andolfi è stato nominato Questore della Questura di Roma
+                    col grado di Primo Dirigente.</p>
+                <p>Matteo Andolfi, è Laureato in giurisprudenza presso l'Università di Pavia, dopo aver conseguito la
+                    Laurea con il massimo dei voti, si è iscritto al concorso per Commissari, che ha vinto
+                    brillantemente. Nel 2020, è stato nominato dirigente dell'Ufficio Volante di Pavia, dove ha svolto
+                    il suo incarico con grande impegno e professionalità. Nel 2024, è stato trasferito a Roma con
+                    l'incarico di Primo Dirigente della Polizia di Stato.</p>
+            </div>
+            <img class="news-image" src="foto/notizie/andolfi.png" alt="Cambio Dirigenti">
+
+        </article>
+
+
+         <article class="news-article gs-reveal page-anim">
+            <div class="news-text-content">
+                <div class="news-date"><i class="far fa-calendar-alt"></i> 20 Marzo 2024</div>
+                <h2 class="news-title">Cerimonia degli Onori alla Polizia di Stato</h2>
+                <p>In data odierna si è svolta la cerimonia di conferimento degli onori e delle decorazioni agli agenti che si sono distinti per atti di coraggio e dedizione al servizio.</p>
+                <p>La Questura di Roma ha voluto riconoscere il valore e l'impegno di questi uomini e donne che ogni giorno garantiscono la sicurezza dei cittadini.</p>
+            </div>
+            <img class="news-image" src="foto/notizie/onori.png" alt="Cerimonia degli Onori" style="width: 450px; height: 350px; margin: auto; object-fit: contain;">
+        </article>
+
+
+        <article class="news-article gs-reveal page-anim">
+            <div class="news-text-content">
+                <div class="news-date" style="position: relative; top: -15px;"><i class="fas fa-exclamation-circle"></i> Avviso</div>
+                <h2 class="news-title">Richiesta Feste</h2>
+                <p>Si ricorda a tutta la cittadinanza che, ai promotori di riunioni in luogo pubblico aperto al
+                    pubblico, è obbligatorio avvisare il Questore della citta di Roma
+                    con almeno 3 Giorni di preavviso.</p>
+                <p>Vedi disposizione art. 18 TULPS.</p>
+            </div>
+            <img class="news-image" src="foto/notizie/stemma.png" alt="Richiesta Feste">
+        </article>
+
+        <article class="news-article gs-reveal page-anim">
+            <div class="news-text-content">
+                <div class="news-date"><i class="far fa-calendar-alt"></i> 13 Aprile 2024</div>
+                <h2 class="news-title">Giuramento del Corpo della Polizia di Stato</h2>
+                <p>Nella giornata di oggi 13 Aprile 2024 si è svolto il Giuramento del Corpo della Polizia di Stato presso la Questura di Roma.</p>
+                <p>I nuovi agenti hanno giurato fedeltà alla Repubblica Italiana e si sono impegnati a servire i cittadini con dedizione e professionalità.</p>
+                <p>La cerimonia si è svolta alla presenza del Questore Marco Ferri e di tutti i Dirigenti del Corpo.</p>
+            </div>
+            <img class="news-image" src="foto/notizie/giuramento.png" alt="Giuramento Polizia">
+        </article>
+
+       
+
+    </main>
+
+    <footer>
+        <p>Sito Ufficiale della Polizia di Stato - Server IPRP | Solo a scopo Roleplay.</p>
+        <p style="margin-top: 10px; font-size: 0.8rem; opacity: 0.6;">Creato da Ryze e DragonFire - IPRP</p>
+    </footer>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

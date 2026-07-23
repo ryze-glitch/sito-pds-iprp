@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Denuncia - Polizia di Stato IPRP</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body class="page-denuncia">
+
+    <div class="preloader" id="preloader">
+        <img id="preload-logo" src="https://i.imgur.com/gRzOXM3.png" alt="Logo Polizia" />
+    </div>
+
+    
+    <div class="navbar-wrapper" id="navbar">
+        <nav class="navbar">
+            <div class="nav-left">
+                <a href="index.html" class="nav-logo">
+                    <img src="https://i.imgur.com/SUM8B5x.png" alt="Logo">
+                    POLIZIA IPRP
+                </a>
+            </div>
+
+                        <div class="nav-center">
+                <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                <a href="notizie.html"><i class="fas fa-bullhorn"></i> Notizie</a>
+
+                <div class="dropdown">
+                    <a href="#"><i class="fas fa-landmark"></i> Chi Siamo <i class="fas fa-chevron-down" style="font-size: 0.7rem; margin-left: -2px;"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="chi-siamo.html"><i class="fas fa-user-tie"></i> La Dirigenza</a>
+                        <a href="storia.html"><i class="fas fa-book"></i> Storia della Polizia</a>
+                        <a href="chi-siamo.html#mezzi"><i class="fas fa-car"></i> I Nostri Mezzi</a>
+                        <a href="chi-siamo.html#reparti"><i class="fas fa-shield-alt"></i> I Nostri Reparti</a>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <a href="#" class="active-link"><i class="fas fa-hands-helping"></i> Servizi <i class="fas fa-chevron-down" style="font-size: 0.7rem; margin-left: -2px;"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="urp.html"><i class="fas fa-comments"></i> URP</a>
+                        <a href="porto-armi.html"><i class="fas fa-shield-halved"></i> Porto D'Armi</a>
+                        <a href="denuncia.html" class="active-link"><i class="fas fa-file-signature"></i> Denuncia</a>
+                    </div>
+                </div>
+
+                <a href="qualifiche.html"><i class="fas fa-medal"></i> Qualifiche</a>
+                <div class="dropdown">
+                    <a href="prenotazioni.html"><i class="fas fa-calendar-check"></i> Prenota <i class="fas fa-chevron-down" style="font-size: 0.7rem; margin-left: -2px;"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="prenotazioni.html"><i class="fas fa-list-check"></i> Tutti i Servizi</a>
+                        <a href="eventi.html"><i class="fas fa-calendar-plus"></i> Richiesta Evento</a>
+                    </div>
+                </div>
+                <a href="concorso.html"><i class="fas fa-trophy"></i> Concorso Pubblico</a>
+            </div>
+
+            <div class="nav-right">
+                <button class="nav-toggle" id="navToggle" aria-label="Apri menu" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </nav>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html"><i class="fas fa-home"></i> Home</a>
+        <a href="notizie.html"><i class="fas fa-bullhorn"></i> Notizie</a>
+        <div class="mobile-divider"></div>
+        <a href="chi-siamo.html"><i class="fas fa-user-tie"></i> La Dirigenza</a>
+        <a href="storia.html" class="mobile-sub"><i class="fas fa-book"></i> Storia della Polizia</a>
+        <a href="chi-siamo.html#mezzi" class="mobile-sub"><i class="fas fa-car"></i> I Nostri Mezzi</a>
+        <a href="chi-siamo.html#reparti" class="mobile-sub"><i class="fas fa-shield-alt"></i> I Nostri Reparti</a>
+        <div class="mobile-divider"></div>
+        <a href="urp.html"><i class="fas fa-comments"></i> URP</a>
+        <a href="porto-armi.html"><i class="fas fa-shield-halved"></i> Porto D'Armi</a>
+        <a href="denuncia.html" class="active-link"><i class="fas fa-file-signature"></i> Denuncia</a>
+        <div class="mobile-divider"></div>
+        <a href="qualifiche.html"><i class="fas fa-medal"></i> Qualifiche</a>
+        <a href="prenotazioni.html"><i class="fas fa-calendar-check"></i> Prenota</a>
+        <a href="eventi.html" class="mobile-sub"><i class="fas fa-calendar-plus"></i> Richiesta Evento</a>
+        <a href="concorso.html"><i class="fas fa-trophy"></i> Concorso Pubblico</a>
+    </div>
+
+    <header class="hero-small">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <h1>Denunce e Querele</h1>
+            <p>Segnalazioni dei cittadini</p>
+        </div>
+    </header>
+
+    <main class="page-content">
+
+        <div class="breadcrumb gs-reveal page-anim">
+            Ti trovi qui:
+            <a href="index.html">Home</a>
+            <i class="fas fa-chevron-right" style="font-size: 0.7rem;"></i>
+            <span>Denuncia, Querela, Esposto</span>
+        </div>
+
+        <div class="denuncia-panel gs-reveal page-anim">
+            <h2>Differenza tra DENUNCIA, QUERELA, ESPOSTO</h2>
+
+            <div class="box-container gs-grid">
+                <div class="info-box gs-card gs-reveal">
+                    <h3><i class="fas fa-file-signature"></i> La denuncia</h3>
+                    <p>La denuncia è l’atto con il quale chiunque abbia notizia di un reato perseguibile d'ufficio ne informa il pubblico ministero o un ufficiale di polizia giudiziaria. La denuncia è un atto facoltativo, ma diventa obbligatorio in alcuni casi espressamente previsti dalla legge:</p>
+                    <ul>
+                        <li>se si viene a conoscenza di un reato contro lo Stato (attentati, terrorismo, spionaggio politico-militare, stragi)</li>
+                        <li>se ci si accorge di aver ricevuto in buona fede denaro falso</li>
+                        <li>se si riceve denaro sospetto o si acquistano oggetti di dubbia origine</li>
+                        <li>se si viene a conoscenza di depositi di materie esplodenti o si rinvenga qualsiasi esplosivo</li>
+                        <li>se si subisce un furto o smarrisce un'arma, parte di essa o un esplosivo</li>
+                        <li>nel caso in cui rappresentanti sportivi abbiano avuto notizia di imbrogli nelle competizioni sportive.</li>
+                    </ul>
+                    <p>Quando la denuncia è facoltativa non è previsto alcun termine per la sua presentazione, mentre nei casi di denuncia obbligatoria apposite disposizioni stabiliscono il termine entro il quale essa deve essere fatta.</p>
+                    <p>La denuncia può essere presentata in forma orale o scritta, deve contenere l'esposizione dei fatti ed essere sottoscritta dal denunciante o dal suo avvocato. La persona che presenta una denuncia ha diritto di ottenere attestazione della ricezione.</p>
+                </div>
+
+                <div class="info-box gs-card gs-reveal">
+                    <h3><i class="fas fa-balance-scale"></i> La querela</h3>
+                    <p>La querela è la dichiarazione con la quale la persona che ha subito un reato (o il suo legale rappresentante) esprime la volontà che si proceda per punire il colpevole. È prevista dagli artt.336 e 340 del codice di procedura penale e riguarda i reati non perseguibili d'ufficio.</p>
+                    <p>Non ci sono particolari regole per il contenuto dell'atto di querela, ma è necessario che, oltre ad essere descritto il fatto-reato, risulti chiara la volontà del querelante che si proceda in ordine al fatto e se ne punisca il colpevole.</p>
+                    <p>La querela deve essere presentata entro 3 Giorni dal giorno in cui si ha notizia del fatto che costituisce il reato (entro 6 Giorni per reati contro la libertà sessuale).</p>
+                    <p>È possibile ritirare la querela precedentemente proposta (remissione della querela), tranne nel caso di violenza sessuale o atti sessuali con minorenni. Affinché la querela sia archiviata, è necessario che la remissione sia accettata dal querelato.</p>
+                </div>
+
+                <div class="info-box gs-card gs-reveal">
+                    <h3><i class="fas fa-exclamation-circle"></i> L’esposto</h3>
+                    <p>L’esposto è l’atto con cui si richiede l'intervento dell'Autorità di Pubblica Sicurezza presentato in caso di dissidi tra privati da una o da entrambe le parti coinvolte.</p>
+                    <p>A seguito della richiesta d’intervento l'ufficiale di Pubblica Sicurezza invita le parti in ufficio per tentare la conciliazione e redigere un verbale. Se dai fatti si configura un reato, l'Ufficiale di P.S. deve informare l'Autorità giudiziaria (se il fatto è perseguibile d'ufficio) o può procedere a un preventivo componimento della vertenza (se perseguibile a querela).</p>
+                </div>
+            </div>
+
+            <h3 style="color: var(--accent-blue); margin-bottom: 15px;">Dove presentarli</h3>
+            <p style="color: var(--text-muted); line-height: 1.7;">Per presentare una denuncia, una querela o un esposto ci si deve recare negli uffici delle forze dell'ordine (questure, commissariati di pubblica sicurezza, Arma dei Carabinieri). La denuncia e l’esposto possono essere presentati anche presso la Procura della Repubblica.</p>
+
+            <div class="alert-box">
+                <p>Per prendere prenotazione per eseguire una Denuncia/Querela/Esposto nel nostro server clicca <a href="prenotazioni.html">QUI</a>.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>Sito Ufficiale della Polizia di Stato - Server IPRP | Solo a scopo Roleplay.</p>
+        <p style="margin-top: 10px; font-size: 0.8rem; opacity: 0.6;">Creato da Ryze e DragonFire - IPRP</p>
+    </footer>
+    <div class="legal-disclaimer">
+        <div class="disclaimer-inner">
+            <i class="fas fa-info-circle"></i>
+            <p>Si informa che il presente sito non ha alcun valore reale o legale ed è stato creato esclusivamente per scopi di intrattenimento legati al videogioco chiamato IPRP. Tutti i contenuti, le informazioni e i riferimenti presenti su questo sito sono puramente fittizi e non devono essere interpretati come dati reali o utilizzabili al di fuori del contesto videoludico. Il sito è progettato per arricchire l'esperienza di gioco e fornire un ambiente immersivo per i giocatori, ma non riflette alcuna realtà esistente. Nessun contenuto può essere utilizzato per scopi legali, commerciali o di qualsiasi altra natura al di fuori dell'ambito del gioco IPRP. Si invita a non fare affidamento sulle informazioni presenti per decisioni o azioni nel mondo reale. L'utilizzo del sito deve essere considerato unicamente come parte dell'esperienza videoludica. <a href="https://www.iprp.it" target="_blank">www.iprp.it</a></p>
+        </div>
+    </div>
+
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

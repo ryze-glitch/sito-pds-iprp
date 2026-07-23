@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Dirigenza - Polizia di Stato IPRP</title>
+    <meta name="description" content="I vertici della Polizia di Stato IPRP - La Dirigenza.">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script>
+      // FIX: hideOnError deve essere globale, non dentro il modulo ES
+      function hideOnError(el) { el.style.display = "none"; }
+    </script>
+    <!-- Firebase SDK - Mezzi e Reparti -->
+    <script type="module">
+      import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
+      import { getFirestore, collection, getDocs } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyBrBkzLE_0MLQEXB9YBDW7G05n6aI_ykA0",
+        authDomain: "polizia-iprp.firebaseapp.com",
+        projectId: "polizia-iprp",
+        storageBucket: "polizia-iprp.firebasestorage.app",
+        messagingSenderId: "295622243589",
+        appId: "1:295622243589:web:abfd6d06dac2f95428f36c"
+      };
+
+      const app = initializeApp(firebaseConfig);
+      const db = getFirestore(app);
+
+
+      // Carica VEICOLI
+      async function loadVeicoli() {
+        const container = document.getElementById('mezzi-container');
+        try {
+          const snap = await getDocs(collection(db, 'VEICOLI'));
+          if (snap.empty) { container.innerHTML = '<p style="color:var(--text-muted);text-align:center;">Nessun veicolo presente nel database.</p>'; return; }
+          let html = '<div class="mezzi-grid">';
+          snap.forEach(doc => {
+            const d = doc.data();
+            const nome = d['Nome auto'] || d['Nome Auto'] || 'Veicolo';
+            const reparto = d['Reparto'] || '';
+            const immagine = d['Immagine'] || '';
+            html += '<div class="mezzo-card">';
+            if (immagine) html += '<img src="' + immagine + '" alt="' + nome + '" onerror="hideOnError(this)">';
+            html += '<div class="mezzo-info"><div class="mezzo-nome">' + nome + '</div>';
+            if (reparto) html += '<div class="mezzo-reparto"><i class="fas fa-shield-alt" style="margin-right:5px;"></i>' + reparto + '</div>';
+            html += '</div></div>';
+          });
+          html += '</div>';
+          container.innerHTML = html;
+        } catch(e) {
+          container.innerHTML = '<p style="color:#ef4444;text-align:center;">Errore caricamento veicoli. Controlla Firebase.</p>';
+        }
+      }
+
+      // Carica REPARTI
+      async function loadReparti() {
+        const container = document.getElementById('reparti-fb-container');
+        try {
+          const snap = await getDocs(collection(db, 'REPARTI'));
+          if (snap.empty) { container.innerHTML = '<p style="color:var(--text-muted);text-align:center;">Nessun reparto presente nel database.</p>'; return; }
+          let html = '';
+          const repartiDocs = [];
+          snap.forEach(doc => repartiDocs.push({ id: doc.id, ...doc.data() }));
+          repartiDocs.forEach((d, idx) => {
+            const nome = d['Nome reparto'] || 'Reparto';
+            const desc = d['Descrizione e funzioni'] || d['Descrizione'] || '';
+            const logo = d['logo'] || d['Logo'] || '';
+            const imgs = Object.keys(d).filter(k => k.toLowerCase().startsWith('immagine-')).sort().map(k => d[k]).filter(Boolean);
+            const cardId = 'rep-' + idx;
+            html += '<div class="reparto-fb-card">';
+            // Slideshow foto in cima
+            if (imgs.length > 0) {
+              html += '<div class="reparto-fb-foto" id="foto-' + cardId + '">';
+              imgs.forEach((img, i) => {
+                html += '<img src="' + img + '" alt="' + nome + '" onerror="hideOnError(this)"' + (i===0?' class="foto-active"':'') + '>';
+              });
+              if (imgs.length > 1) {
+                html += '<div class="reparto-fb-foto-dots">';
+                imgs.forEach((_, i) => {
+                  html += '<div class="foto-dot' + (i===0?' active':'') + '"></div>';
+                });
+                html += '</div>';
+              }
+              html += '</div>';
+            }
+            // Info card
+            html += '<div class="reparto-fb-info">';
+            html += '<div class="reparto-fb-header">';
+            if (logo) {
+              html += '<img class="reparto-fb-logo" src="' + logo + '" alt="Logo ' + nome + '" onerror="hideOnError(this)">';
+            } else {
+              html += '<div class="reparto-fb-logo-placeholder"><i class="fas fa-shield-alt"></i></div>';
+            }
+            html += '<div class="reparto-fb-nome">' + nome + '</div>';
+            html += '</div>';
+            if (desc) html += '<div class="reparto-fb-desc">' + desc + '</div>';
+            html += '</div>';
+            html += '</div>';
+          });
+          container.innerHTML = html;
+          // Avvia slideshow per ogni card con più foto
+          container.querySelectorAll('.reparto-fb-foto').forEach(fotoEl => {
+            const imgs = fotoEl.querySelectorAll('img');
+            const dots = fotoEl.querySelectorAll('.foto-dot');
+            if (imgs.length <= 1) return;
+            let cur = 0;
+            setInterval(() => {
+              imgs[cur].classList.remove('foto-active');
+              dots[cur] && dots[cur].classList.remove('active');
+              cur = (cur + 1) % imgs.length;
+              imgs[cur].classList.add('foto-active');
+              dots[cur] && dots[cur].classList.add('active');
+            }, 3000);
+          });
+        } catch(e) {
+          container.innerHTML = '<p style="color:#ef4444;text-align:center;">Errore caricamento reparti. Controlla Firebase.</p>';
+        }
+      }
+
+      window.addEventListener('DOMContentLoaded', () => { loadVeicoli(); loadReparti(); });
+    </script>
+</head>
+<body class="page-chi-siamo">
+
+    <div class="preloader" id="preloader">
+        <img id="preload-logo" src="https://i.imgur.com/gRzOXM3.png" alt="Logo Polizia" />
+    </div>
+
+    <div class="navbar-wrapper" id="navbar">
+        <nav class="navbar">
+            <div class="nav-left">
+                <a href="index.html" class="nav-logo"><img src="https://i.imgur.com/SUM8B5x.png" alt="Logo"> POLIZIA IPRP</a>
+            </div>
+                        <div class="nav-center">
+                <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                <a href="notizie.html"><i class="fas fa-bullhorn"></i> Notizie</a>
+
+                <div class="dropdown">
+                    <a href="#" class="active-link"><i class="fas fa-landmark"></i> Chi Siamo <i class="fas fa-chevron-down" style="font-size: 0.7rem; margin-left: -2px;"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="chi-siamo.html" class="active-link"><i class="fas fa-user-tie"></i> La Dirigenza</a>
+                        <a href="storia.html"><i class="fas fa-book"></i> Storia della Polizia</a>
+                        <a href="chi-siamo.html#mezzi"><i class="fas fa-car"></i> I Nostri Mezzi</a>
+                        <a href="chi-siamo.html#reparti"><i class="fas fa-shield-alt"></i> I Nostri Reparti</a>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <a href="#"><i class="fas fa-hands-helping"></i> Servizi <i class="fas fa-chevron-down" style="font-size: 0.7rem; margin-left: -2px;"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="urp.html"><i class="fas fa-comments"></i> URP</a>
+                        <a href="porto-armi.html"><i class="fas fa-shield-halved"></i> Porto D'Armi</a>
+                        <a href="denuncia.html"><i class="fas fa-file-signature"></i> Denuncia</a>
+                    </div>
+                </div>
+
+                <a href="qualifiche.html"><i class="fas fa-medal"></i> Qualifiche</a>
+                <div class="dropdown">
+                    <a href="prenotazioni.html"><i class="fas fa-calendar-check"></i> Prenota <i class="fas fa-chevron-down" style="font-size: 0.7rem; margin-left: -2px;"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="prenotazioni.html"><i class="fas fa-list-check"></i> Tutti i Servizi</a>
+                        <a href="eventi.html"><i class="fas fa-calendar-plus"></i> Richiesta Evento</a>
+                    </div>
+                </div>
+                <a href="concorso.html"><i class="fas fa-trophy"></i> Concorso Pubblico</a>
+            </div>
+
+            <div class="nav-right">
+                <button class="nav-toggle" id="navToggle" aria-label="Apri menu" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </nav>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html"><i class="fas fa-home"></i> Home</a>
+        <a href="notizie.html"><i class="fas fa-bullhorn"></i> Notizie</a>
+        <div class="mobile-divider"></div>
+        <a href="chi-siamo.html" class="active-link"><i class="fas fa-user-tie"></i> La Dirigenza</a>
+        <a href="storia.html" class="mobile-sub"><i class="fas fa-book"></i> Storia della Polizia</a>
+        <a href="chi-siamo.html#mezzi" class="mobile-sub"><i class="fas fa-car"></i> I Nostri Mezzi</a>
+        <a href="chi-siamo.html#reparti" class="mobile-sub"><i class="fas fa-shield-alt"></i> I Nostri Reparti</a>
+        <div class="mobile-divider"></div>
+        <a href="urp.html"><i class="fas fa-comments"></i> URP</a>
+        <a href="porto-armi.html"><i class="fas fa-shield-halved"></i> Porto D'Armi</a>
+        <a href="denuncia.html"><i class="fas fa-file-signature"></i> Denuncia</a>
+        <div class="mobile-divider"></div>
+        <a href="qualifiche.html"><i class="fas fa-medal"></i> Qualifiche</a>
+        <a href="prenotazioni.html"><i class="fas fa-calendar-check"></i> Prenota</a>
+        <a href="eventi.html" class="mobile-sub"><i class="fas fa-calendar-plus"></i> Richiesta Evento</a>
+        <a href="concorso.html"><i class="fas fa-trophy"></i> Concorso Pubblico</a>
+    </div>
+
+    <header class="hero-small">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <h1>LA DIRIGENZA</h1>
+            <p>I Vertici della Polizia di Stato</p>
+        </div>
+    </header>
+
+    <main class="page-content">
+        <div class="breadcrumb gs-reveal page-anim">
+            Ti trovi qui:
+            <a href="index.html">Home</a>
+            <i class="fas fa-chevron-right" style="font-size:0.7rem;"></i>
+            <a href="#">Chi Siamo</a>
+            <i class="fas fa-chevron-right" style="font-size:0.7rem;"></i>
+            <span>La Dirigenza</span>
+        </div>
+
+        <div class="dirigenza-grid">
+            <div class="dirigente-card gs-reveal gs-card">
+                <img src="https://i.imgur.com/CjREaFS.jpg" alt="Jolen Iuliano" class="dirigente-img">
+                <div class="dirigente-name">Jolen Iuliano</div>
+                <div class="dirigente-role">Dirigente Superiore</div>
+                <div class="dirigente-desc">Affianca la direzione generale nel coordinamento tattico e amministrativo della Questura. Supervisiona i reparti speciali garantendo il mantenimento dell'ordine pubblico.</div>
+            </div>
+
+            <div class="dirigente-card center-card gs-reveal gs-card">
+                <img src="https://i.imgur.com/8fsNUu2.jpg" alt="Marco Ferri" class="dirigente-img">
+                <div class="dirigente-name">Marco Ferri</div>
+                <div class="dirigente-role">Dirigente Generale<br>Prefetto di Roma</div>
+                <div class="dirigente-desc">Massima autorità di Pubblica Sicurezza. Gestisce l'intera Questura centrale, determina le direttive operative e coordina le forze dell'ordine sul territorio romano.</div>
+            </div>
+
+            <div class="dirigente-card gs-reveal gs-card">
+                <img src="https://i.imgur.com/Yy11WFJ.jpg" alt="Matteo Rossi" class="dirigente-img">
+                <div class="dirigente-name">Matteo Rossi</div>
+                <div class="dirigente-role">Primo Dirigente</div>
+                <div class="dirigente-desc">Responsabile diretto dell'operatività sul campo. Sovraintende alle indagini, alla gestione del personale di pattuglia e al pronto intervento in situazioni di criticità.</div>
+            </div>
+        </div>
+    </main>
+
+    <!-- SEZIONE I NOSTRI MEZZI -->
+    <a id="mezzi"></a>
+    <section class="mezzi-section">
+        <h2 class="section-heading">I Nostri <span>Mezzi</span></h2>
+        <div id="mezzi-container">
+            <div class="loading-placeholder">
+                <i class="fas fa-spinner fa-spin"></i>
+                Caricamento veicoli dal database...
+            </div>
+        </div>
+    </section>
+
+    <!-- SEZIONE I NOSTRI REPARTI (da Firebase) -->
+    <a id="reparti"></a>
+    <section class="reparti-fb-section">
+        <h2 class="section-heading">I Nostri <span>Reparti</span></h2>
+        <div id="reparti-fb-container" class="reparti-grid">
+            <div class="loading-placeholder">
+                <i class="fas fa-spinner fa-spin"></i>
+                Caricamento reparti dal database...
+            </div>
+        </div>
+    </section>
+
+
+    <footer>
+        <p>Sito Ufficiale della Polizia di Stato - Server IPRP | Solo a scopo Roleplay.</p>
+        <p style="margin-top:10px;font-size:0.8rem;opacity:0.6;">Creato da Ryze e DragonFire - IPRP</p>
+    </footer>
+    <div class="legal-disclaimer">
+        <div class="disclaimer-inner">
+            <i class="fas fa-info-circle"></i>
+            <p>Si informa che il presente sito non ha alcun valore reale o legale ed è stato creato esclusivamente per scopi di intrattenimento legati al videogioco chiamato IPRP. Tutti i contenuti, le informazioni e i riferimenti presenti su questo sito sono puramente fittizi e non devono essere interpretati come dati reali o utilizzabili al di fuori del contesto videoludico. Il sito è progettato per arricchire l'esperienza di gioco e fornire un ambiente immersivo per i giocatori, ma non riflette alcuna realtà esistente. Nessun contenuto può essere utilizzato per scopi legali, commerciali o di qualsiasi altra natura al di fuori dell'ambito del gioco IPRP. Si invita a non fare affidamento sulle informazioni presenti per decisioni o azioni nel mondo reale. L'utilizzo del sito deve essere considerato unicamente come parte dell'esperienza videoludica. <a href="https://www.iprp.it" target="_blank">www.iprp.it</a></p>
+        </div>
+    </div>
+
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
